@@ -1,0 +1,20 @@
+Int counter =0;
+Int number = 5;
+While (number !=0){
+If(number &&0x1){
+Counter++
+Number=number>>1
+}
+}
+Instructions	 Machine code	        Hex
+Set $r0  0x0	  1110000000000000	E000
+Set  $r1  0x5	  1110000100000101	E105
+Loop		
+beqz $r1 done	   1010000100000110	A106
+andi $r2 $r1 0x1   0010001000100001	2221
+Beqz $r2 exit	   1010001000000010	A202
+Addi $r0 $r0 0x1   0100000000000001	4001
+Exit:		
+Srl $r1 $r1 0x1	   0110000100100001	6121
+J loop	           1111011111111011	F7fb
+Done		

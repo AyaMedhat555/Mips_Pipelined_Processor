@@ -1,0 +1,41 @@
+Int array ={1,3,6};
+Int size =3;
+Sum();
+Int result =sum();
+Sum (int[]arr,int size){
+Int sum =0;
+Int counter=0;
+While(size !=counter){
+Sum = sum +arr[counter];
+Counter++;
+Return sum ;
+}
+}
+
+
+Instruction	Machine code	hex
+Set $r1 0x0	1110000100000000	E100
+Set $r0 0x1	1110000000000001	E001
+Set $r2 0x3	1110001000000011	E203
+Set $r3 0x6	1110001100000110	E306
+Sw $r0 0($r1)	1000100000100000	8820
+Sw $r0 1($r1)	1000101000100001	8a21
+Sw $r3 2($r1)	1000101100100010	8b22
+Set $r0 0x3	1110000000000011	E003
+Jal sum	        1111100000000010	F802
+Sum:		
+Set $r3 0x0	1110001100000000	E300
+Set $r4 0x0	1110010000000000	E400
+Sub $r5 $r5 $r5	0000110110110101	0db5
+Loop		
+Beq $r0 $r4 exit 0111000010000110	7086
+Lw $r1 0($r5)	 1000000110100000	81a0
+Addi $r5 $r5 0x1  0100010110100001	45a1
+Add $r3 $r3 $r1	  0000101101100100	0b64
+Addi $r4 $r4 0x1   0100010010000001	4481
+J loop	            1111011111111011	F7fb
+Exit		
+Addi $r6 $r3 0x0    0100011001100000	4660
+Jr $r7	            1101011100000000	D700
+
+
